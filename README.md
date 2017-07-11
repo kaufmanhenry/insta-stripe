@@ -1,4 +1,4 @@
 # insta-stripe
-Instant, deployable stripe payment gateway.
+Instant, deployable stripe payment gateways.
 
 :credit_card:
