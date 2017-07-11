@@ -67,6 +67,9 @@ class App extends Component {
             <StripeCheckout
               token={this.onToken}
               stripeKey={payment.stripePublicKey}
+              amount={payment.paymentAmount}
+              name={`Paying ${payment.person}`}
+              description={payment.paymentDescription}
             >
               <button style={styles.payNow}>Pay Now</button>
             </StripeCheckout>
