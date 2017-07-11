@@ -45,5 +45,14 @@
     "webpack-dev-middleware": "^1.11.0",
     "webpack-dev-server": "2.4.2",
     "webpack-hot-middleware": "^2.18.0"
+  },
+  "now": {
+    "env": [
+      "paymentPerson",
+      "paymentAmount",
+      "paymentDescription",
+      "stripePublicKey",
+      "stripeSecretKey"
+    ]
   }
 }
