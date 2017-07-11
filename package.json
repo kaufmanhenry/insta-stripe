@@ -18,6 +18,7 @@
     "redux": "^3.7.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.15.4",
+    "stripe": "^4.23.1",
     "webpack": "2.4.1"
   },
   "devDependencies": {
