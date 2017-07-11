@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
-import fetchPaymentRequest from '../actions/payment';
+import StripeCheckout from 'react-stripe-checkout';
+
+import { fetchPaymentRequest, chargePaymentRequest } from '../actions/payment';
 
 class App extends Component {
   constructor(props) {
@@ -10,8 +12,13 @@ class App extends Component {
 
     this.props.fetchPaymentRequest();
   }
+
+  onToken = (token) => {
+    this.props.chargePaymentRequest({ token });
+  }
+
   render() {
-    const { payment: { payment, loaded, loading } } = this.props;
+    const { payment: { payment, loaded, loading, paymentResponse } } = this.props;
 
     const styles = {
       container: {
@@ -48,7 +55,8 @@ class App extends Component {
       <div style={styles.container}>
         {loading && <p>The payment is loading.</p>}
         {loaded && !payment && <p>There was an error loading.</p>}
-        {payment && <div>
+        {payment.message && <p style={styles.containerText}>{payment.message}</p>}
+        {payment && payment.stripePublicKey && <div>
           <p style={styles.containerText}>
             Hi, <span style={styles.paymentPerson}>{payment.person}</span>.
             <br />
@@ -56,7 +64,12 @@ class App extends Component {
             You’re about to pay <span style={styles.paymentAmount}>${payment.paymentAmount}</span> for <span style={styles.paymentDescription}>{payment.paymentDescription}</span>.
             <br />
             <br />
-            <button style={styles.payNow}>Pay Now</button>
+            <StripeCheckout
+              token={this.onToken}
+              stripeKey={payment.stripePublicKey}
+            >
+              <button style={styles.payNow}>Pay Now</button>
+            </StripeCheckout>
           </p>
         </div>}
       </div>
@@ -70,7 +83,10 @@ App.propTypes = {
     loaded: PropTypes.bool,
     loading: PropTypes.bool
   }).isRequired,
-  fetchPaymentRequest: PropTypes.func.isRequired
+  fetchPaymentRequest: PropTypes.func.isRequired,
+  chargePaymentRequest: PropTypes.func.isRequired
 };
 
-export default connect(({ payment }) => ({ payment }), { fetchPaymentRequest })(App);
+export default connect(
+  ({ payment }) => ({ payment }),
+  { fetchPaymentRequest, chargePaymentRequest })(App);

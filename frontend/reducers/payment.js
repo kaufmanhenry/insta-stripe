@@ -1,4 +1,11 @@
-import { GET_PAYMENT_REQUEST, GET_PAYMENT_SUCCESS, GET_PAYMENT_FAILURE } from '../constants/payment';
+import {
+  GET_PAYMENT_REQUEST,
+  GET_PAYMENT_SUCCESS,
+  GET_PAYMENT_FAILURE,
+  CHARGE_PAYMENT_REQUEST,
+  CHARGE_PAYMENT_SUCCESS,
+  CHARGE_PAYMENT_FAILURE
+} from '../constants/payment';
 
 const defaultState = {
   loading: false,
@@ -23,6 +30,25 @@ export default function (state = defaultState, action) {
         payment: response
       };
     case GET_PAYMENT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        loaded: false
+      };
+    case CHARGE_PAYMENT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        loaded: false
+      };
+    case CHARGE_PAYMENT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        payment: response
+      };
+    case CHARGE_PAYMENT_FAILURE:
       return {
         ...state,
         loading: false,

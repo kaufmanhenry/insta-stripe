@@ -7,10 +7,13 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config');
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 // Setup express
 const app = express();
 app.set('router', express.Router);
+app.set('config', require('./config'));
+app.set('StripeProvider', require('./config/stripe'));
 
 // Webpack configuration
 const compiler = webpack(config);
@@ -20,13 +23,19 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
-// Require the backend
-app.use('/api', require('./backend/index'));
+// body-parser config
+app.use(bodyParser.json());
 
-// Serve all static files
-app.get('*', (req, res) => res.sendFile(path.join(`${__dirname}/dist/index.html`)));
+// Require the API
+require('./backend/index')(app, (err, router) => {
+  if (err) console.error(err);
 
-// Start the server
-app.listen(3000, () => {
+  // Use /api as the base for the backend
+  app.use('/api', router);
+
+  // Setup the default index route
+  app.get('*', (req, res) => res.sendFile(path.join(`${__dirname}/dist/index.html`)));
+
+  app.listen(3000);
   console.info('==> 🌎  Listening on port 3000. Open up http://localhost:3000/ in your browser.');
 });
