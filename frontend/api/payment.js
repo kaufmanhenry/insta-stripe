@@ -9,6 +9,10 @@ function createApiRequest(url, method, data) {
   });
 }
 
-export default function fetchUsersApi() {
-  return createApiRequest('/api/users', 'GET', null);
+export function fetchPaymentApi() {
+  return createApiRequest('/api/configuration', 'GET', null);
+}
+
+export function chargePaymentApi(token) {
+  return createApiRequest('/api/charge', 'POST', { token });
 }

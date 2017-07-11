@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import user from './user';
+import payment from './payment';
 
 const reducers = combineReducers({
-  user
+  payment
 });
 
 export default reducers;

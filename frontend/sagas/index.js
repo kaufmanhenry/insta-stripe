@@ -1,7 +1,7 @@
-import UserSaga from './user';
+import PaymentSaga from './payment';
 
 export default function* IndexSaga() {
   yield [
-    UserSaga()
+    PaymentSaga()
   ];
 }

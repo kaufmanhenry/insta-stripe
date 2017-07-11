@@ -2,35 +2,38 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
-import fetchUsersRequest from '../actions/user';
-
-import ListItem from '../components/ListItem';
+import fetchPaymentRequest from '../actions/payment';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.props.fetchUsersRequest();
+    this.props.fetchPaymentRequest();
   }
   render() {
-    const { user: { users, loaded, loading } } = this.props;
+    const { payment: { payment, loaded, loading } } = this.props;
     return (
       <div>
-        {loading && <p>Stuff is loading.</p>}
-        {loaded && !users.length && <p>There was an error loading.</p>}
-        {users && users.map(user => <ListItem key={user.id} name={user.name} email={user.email} />)}
+        {loading && <p>The payment is loading.</p>}
+        {loaded && !payment && <p>There was an error loading.</p>}
+        {payment && <div>
+          <p>
+            Hi, {payment.person}.
+            You’re about to pay ${payment.paymentAmount} for {payment.paymentDescription}.
+          </p>
+        </div>}
       </div>
     );
   }
 }
 
 App.propTypes = {
-  user: PropTypes.shape({
-    users: PropTypes.array,
+  payment: PropTypes.shape({
+    payment: PropTypes.object,
     loaded: PropTypes.bool,
     loading: PropTypes.bool
   }).isRequired,
-  fetchUsersRequest: PropTypes.func.isRequired
+  fetchPaymentRequest: PropTypes.func.isRequired
 };
 
-export default connect(({ user }) => ({ user }), { fetchUsersRequest })(App);
+export default connect(({ payment }) => ({ payment }), { fetchPaymentRequest })(App);

@@ -1,28 +1,28 @@
-import { USERS_REQUEST, USERS_SUCCESS, USERS_FAILURE } from '../constants/user';
+import { GET_PAYMENT_REQUEST, GET_PAYMENT_SUCCESS, GET_PAYMENT_FAILURE } from '../constants/payment';
 
 const defaultState = {
   loading: false,
   loaded: false,
-  users: []
+  payment: {}
 };
 
 export default function (state = defaultState, action) {
   const { response } = action;
   switch (action.type) {
-    case USERS_REQUEST:
+    case GET_PAYMENT_REQUEST:
       return {
         ...state,
         loading: true,
         loaded: false
       };
-    case USERS_SUCCESS:
+    case GET_PAYMENT_SUCCESS:
       return {
         ...state,
         loading: false,
         loaded: true,
-        users: response
+        payment: response
       };
-    case USERS_FAILURE:
+    case GET_PAYMENT_FAILURE:
       return {
         ...state,
         loading: false,
