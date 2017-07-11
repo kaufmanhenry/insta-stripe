@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   render() {
-    const { payment: { payment, loaded, loading, paymentResponse } } = this.props;
+    const { payment: { payment, loaded, loading } } = this.props;
 
     const styles = {
       container: {
@@ -61,7 +61,7 @@ class App extends Component {
             Hi, <span style={styles.paymentPerson}>{payment.person}</span>.
             <br />
             <br />
-            You’re about to pay <span style={styles.paymentAmount}>${payment.paymentAmount}</span> for <span style={styles.paymentDescription}>{payment.paymentDescription}</span>.
+            You’re about to pay <span style={styles.paymentAmount}>${payment.paymentAmount / 100}</span> for <span style={styles.paymentDescription}>{payment.paymentDescription}</span>.
             <br />
             <br />
             <StripeCheckout
