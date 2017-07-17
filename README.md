@@ -1,7 +1,7 @@
 # insta-stripe 💳
 Instant, deployable [Stripe](https://stripe.com) payment gateways.
 
-A demo can be found [here](https://insta-stripe-trwygziqsg.now.sh/)
+A demo can be found [here](https://insta-stripe-trwygziqsg.now.sh/).
 
 ### Usage 🤑
 You can deploy this repository instantly using [`now`](http://now.sh).
