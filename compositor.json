@@ -98,10 +98,6 @@
         {
           "href": "https://github.com/hcjk/insta-stripe",
           "text": "GitHub"
-        },
-        {
-          "href": "https://npmjs.com/package/insta-stripe",
-          "text": "npm"
         }
       ]
     },
