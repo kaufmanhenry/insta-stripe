@@ -1,0 +1,147 @@
+{
+  "name": "hcjk/insta-stripe",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "insta-stripe",
+  "branch": "master",
+  "style": {
+    "name": "Default",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BannerHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "-apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": 400,
+    "bold": 600,
+    "lineHeight": 1.5,
+    "typeScale": [
+      72,
+      48,
+      24,
+      20,
+      16,
+      14,
+      12
+    ],
+    "monospace": "Menlo, monospace",
+    "heading": {
+      "fontFamily": null,
+      "fontStyle": null,
+      "fontWeight": 600,
+      "lineHeight": 1.25,
+      "textTransform": null,
+      "letterSpacing": null
+    },
+    "h0": {},
+    "h1": {},
+    "h2": {},
+    "h3": {},
+    "h4": {},
+    "h5": {},
+    "h6": {},
+    "alternativeText": {},
+    "space": [
+      0,
+      8,
+      16,
+      32,
+      48,
+      64,
+      96
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "centered": false
+    },
+    "colors": {
+      "text": "#111",
+      "background": "#fff",
+      "primary": "#08e",
+      "secondary": "#059",
+      "highlight": "#e08",
+      "border": "#ddd",
+      "muted": "#eee"
+    },
+    "border": {
+      "width": 1,
+      "radius": 2
+    },
+    "link": {},
+    "button": {
+      "hover": {
+        "boxShadow": "inset 0 0 0 999px rgba(0, 0, 0, .125)"
+      }
+    },
+    "input": {},
+    "body": {
+      "margin": 0
+    },
+    "breakpoints": {
+      "xs": "@media screen and (max-width:40em)",
+      "sm": "@media screen and (min-width:40em)",
+      "md": "@media screen and (min-width:52em)",
+      "lg": "@media screen and (min-width:64em)"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://insta-stripe-trwygziqsg.now.sh/",
+          "text": "Home"
+        },
+        {
+          "href": "https://github.com/hcjk/insta-stripe",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/insta-stripe",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "insta-stripe",
+      "subhead": "💳 Instant, deployable stripe payment gateways.",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "insta-stripe: 💳 Instant, deployable stripe payment gateways.",
+          "url": "https://insta-stripe-trwygziqsg.now.sh/"
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "hcjk",
+          "repo": "insta-stripe"
+        }
+      ],
+      "text": "v1.0.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n<p>Instant, deployable <a href=\"https://stripe.com\">Stripe</a> payment gateways.</p>\n<h3>Usage &#x1F911;</h3>\n<p>You can deploy this repository instantly using <a href=\"http://now.sh\"><code>now</code></a>.</p>\n<pre>now hcjk/insta-stripe</pre><p>This will walk you through deploying <code>insta-stripe</code>, and will allow you to set the variables</p>\n<h4>Using a <code>.env</code> file &#x1F913;</h4>\n<p>A <code>.env</code> file can be used to configure the variables. An example <code>.env</code> file looks like this:</p>\n<pre># The person that&apos;s paying the money\npaymentPerson=someone\n# Amount in cents\npaymentAmount=100\n# A description for the payment\npaymentDescription=design\n# A stripe public key\nstripePublicKey=STRIPE_PUBLIC_KEY\n# A stripe secrey key\nstripeSecretKey=STRIPE_SECRET_KEY</pre><h3>Development &#x1F4BB;</h3>\n<pre>git clone https://github.com/hcjk/insta-stripe.git</pre><p>Duplicate <code>.env.example</code> to <code>.env</code> and update the values accordingly.</p>\n<pre>yarn\nyarn start</pre><p>The server will be running at <code>localhost:3000</code>.</p>\n<h3>License</h3>\n<p>Copyright (c) 2017 Henry Kaufman, licensed under the MIT license. See <a href=\"https://github.com/hcjk/insta-stripe/blob/master/LICENSE\">LICENSE</a> for more information.</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/hcjk/insta-stripe",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/hcjk",
+          "text": "hcjk"
+        }
+      ]
+    }
+  ]
+}
